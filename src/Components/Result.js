@@ -11,6 +11,8 @@ const Result = (props) => {
   <div style={{fontWeight:"bold"}}> The income of family is Rs.{income}
   <br/>
   Saving when {noOFMember} in family : Rs.{result}
+  <br/>
+  Yearly Saving :{result * 12}
 </div>
 </div>
 </div>

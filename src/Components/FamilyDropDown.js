@@ -9,7 +9,7 @@ const FamilyDropDown = ({selectChange}) => {
     
         <div className="form-row">
         <div className="form-group col-md-8">
-          <label htmlFor="inputfamily">Family</label>
+          <label htmlFor="inputfamily">Select Family</label>
           
           <select id="inputState" className="form-control" onChange={selectChange}>
           <option value="0">Select</option>
