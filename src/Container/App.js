@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Navigation from './Components/Navigation';
-import FamilyDropDown from './Components/FamilyDropDown';
-import FamilyMemberDropDown from './Components/FamilyMemberDropDown';
-import Button from './Components/Button';
-import Result from './Components/Result';
+import Navigation from '../Components/Navigation';
+import FamilyDropDown from '../Components/FamilyDropDown';
+import FamilyMemberDropDown from '../Components/FamilyMemberDropDown';
+import Button from '../Components/Button';
+import Result from '../Components/Result';
 import Particles from 'react-particles-js';
 import './App.css';
 
