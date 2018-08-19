@@ -43,7 +43,7 @@ class SavingCalulator extends Component{
             let saving = Math.round((income/100) * 40); 
             this.setState({result:saving,savingPercent:'40%'});
           }
-          else
+          else if(income<100000)
           {
             this.setState({error:"Entered Salary Should be more than 1 lakh "});
           }
@@ -69,7 +69,7 @@ class SavingCalulator extends Component{
             let saving = Math.round((income/100) * 50); 
             this.setState({result:saving,savingPercent:'50%'});
           }
-          else
+          else if(income<100000)
           {
               this.setState({error:"Entered Salary Should be more than 1 lakh "});
           }
@@ -80,7 +80,7 @@ class SavingCalulator extends Component{
     
     render()
     {
-        const {result,savingPercent} = this.state;
+        const {result,savingPercent,income} = this.state;
         return(
             <div>
             <div className="form-row">
@@ -92,7 +92,7 @@ class SavingCalulator extends Component{
 
             <div className="form-row">
             <div className="form-group col-md-8">
-            <label htmlFor="inputfamily">Number of Memebers</label>
+            <label htmlFor="inputfamily">Number of Members</label>
             <input className="form-control" placeholder="Enter Family Member" type="number" onChange={(event)=>{this.setState({numberOfFamilyMembers:event.target.value})}}/>
             </div>
             </div>
@@ -102,6 +102,12 @@ class SavingCalulator extends Component{
             <div className="form-group col-md-8">
             <p style={{fontWeight:"bold"}}> 
              Total Saving :Rs.{result}  Saving Percent:{savingPercent}
+            
+            </p>
+            <br/>
+            <p style={{fontWeight:"bold",color:"red"}}> 
+          
+             {income<100000?this.state.error:null}
             </p>
             </div>
             </div>
