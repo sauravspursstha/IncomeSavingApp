@@ -137,7 +137,7 @@ class App extends Component {
       <Particles className='particle' params={particlesOptions} />
       <Navigation onPageChange = {this.onPageChange} hasClicked = {hasClicked}/>
    
-      <div className="container" style={{paddingLeft:"200px"}}>
+      <div className="container" style={{paddingLeft:"14%"}}>
     { 
       route==="old" ?
     
