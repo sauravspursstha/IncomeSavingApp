@@ -4,7 +4,9 @@ import FamilyDropDown from '../Components/FamilyDropDown';
 import FamilyMemberDropDown from '../Components/FamilyMemberDropDown';
 import Button from '../Components/Button';
 import Result from '../Components/Result';
+import SavingCalculator from '../Components/SavingCalculator/SavingCalculator'
 import Particles from 'react-particles-js';
+
 import './App.css';
 
 
@@ -28,7 +30,9 @@ class App extends Component {
     this.state = {
       numberofMemebers : '',
       income : 0,
-      result : 0
+      result : 0,
+      route : 'old',
+      hasClicked : false
     }
   }
 
@@ -109,17 +113,35 @@ class App extends Component {
     this.onButtonClick();
   }
 
+  onPageChange = (route) =>
+  {
+    if(route ==="new")
+    {
+      this.setState({hasClicked:true})
+    }
+    else
+    {
+      this.setState({hasClicked:false})
+    }
+    this.setState({route: route })
+  }
+
   render() {
       
     
-    const {numberofMemebers, income, result}  = this.state;
+    const {numberofMemebers, income, result,route,hasClicked}  = this.state;
+    
+     
     return (
       <div>
       <Particles className='particle' params={particlesOptions} />
-      <Navigation/>
-
+      <Navigation onPageChange = {this.onPageChange} hasClicked = {hasClicked}/>
+   
       <div className="container" style={{paddingLeft:"200px"}}>
-
+    { 
+      route==="old" ?
+    
+        <div>
          <FamilyDropDown selectChange = {this.onFamilyChange} />
     
 
@@ -130,7 +152,16 @@ class App extends Component {
        
 
          <Result income = {income} noOFMember = {numberofMemebers} result = {result}/>
-  </div>
+         </div>
+           :(route==="new"?
+
+           <SavingCalculator route = {route}/>
+
+           :console.log("Sorry")
+           )
+         
+    }
+      </div>
       </div>
 
     );
