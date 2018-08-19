@@ -5,9 +5,9 @@ const Navigation = ({onPageChange,hasClicked}) => {
     <div style={{width:"100%", height:"auto", paddingBottom:"15px",textAlign:"center"}}>
          <h1 style={{textAlign:"center"}} >Save Family Income</h1>
          {(!hasClicked)?
-            <p onClick={()=>onPageChange('new') } > Next Page </p>
+            <p style={{fontWeight:"bold",cursor:"pointer"}} onClick={()=>onPageChange('new') } > Next Page </p>
          :
-         <p onClick={()=>onPageChange('old')} > Previous Page </p>
+         <p style={{fontWeight:"bold",cursor:"pointer"}} onClick={()=>onPageChange('old')} > Previous Page </p>
         
          }
          

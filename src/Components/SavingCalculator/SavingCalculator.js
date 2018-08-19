@@ -25,22 +25,22 @@ class SavingCalulator extends Component{
         console.log(income,numberOfFamilyMembers);
         
         
-        if(numberOfFamilyMembers >1 &&  numberOfFamilyMembers <= 2)
+        if(numberOfFamilyMembers >= 1 &&  numberOfFamilyMembers <= 2)
         {
-          if(income > 100000 && income < 300000)
+          if(income >= 100000 && income <= 300000)
           {
-            let saving = (income/100) * 10; 
+            let saving = Math.round((income/100) * 10); 
             this.setState({result:saving,savingPercent:'10%'});
           }
-          else if( income > 300000 && income < 2000000)
+          else if( income > 300000 && income <= 2000000)
           {
-            let saving = (income/100) * 20; 
+            let saving = Math.round((income/100) * 20); 
             this.setState({result:saving,savingPercent:'20%'});
                 }
         
           else if( income > 2000000)
           {
-            let saving = (income/100) * 40; 
+            let saving = Math.round((income/100) * 40); 
             this.setState({result:saving,savingPercent:'40%'});
           }
           else
@@ -53,20 +53,20 @@ class SavingCalulator extends Component{
         else if(numberOfFamilyMembers >2)
         {
           
-          if(income > 100000 && income < 300000)
+          if(income >= 100000 && income <= 300000)
           {
-            let saving = (income/100) * 15; 
+            let saving = Math.round((income/100) * 15);
             this.setState({result:saving,savingPercent:'15%'});
           }
-          else if( income > 300000 && income < 2000000)
+          else if( income > 300000 && income <= 2000000)
           {
-            let saving = (income/100) * 25; 
+            let saving = Math.round((income/100) * 25);
             this.setState({result:saving,savingPercent:'25%'});
                 }
         
           else if( income > 2000000)
           {
-            let saving = (income/100) * 50; 
+            let saving = Math.round((income/100) * 50); 
             this.setState({result:saving,savingPercent:'50%'});
           }
           else
@@ -85,8 +85,8 @@ class SavingCalulator extends Component{
             <div>
             <div className="form-row">
             <div className="form-group col-md-8">
-            <label htmlFor="inputfamily">Select Family</label>
-            <input className="form-control" placeholder="Enter Salary" type="number" onChange={(event)=>{this.setState({income:event.target.value})}}/>
+            <label htmlFor="inputfamily">Enter Family Income</label>
+            <input className="form-control" placeholder="Enter Income" type="number" onChange={(event)=>{this.setState({income:event.target.value})}}/>
             </div>
             </div>
 
@@ -100,9 +100,8 @@ class SavingCalulator extends Component{
             <Button onCalculate = {this.onClick}/>
             <div className="form-row">
             <div className="form-group col-md-8">
-            <p> 
-             Total Saving : Rs.{result}
-              Saving Percent : Rs.{savingPercent}
+            <p style={{fontWeight:"bold"}}> 
+             Total Saving :Rs.{result}  Saving Percent:{savingPercent}
             </p>
             </div>
             </div>
